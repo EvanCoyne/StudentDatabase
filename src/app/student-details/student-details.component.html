@@ -1,0 +1,17 @@
+
+<mat-toolbar color="primary">Students List</mat-toolbar>
+<mat-accordion multi="true" *ngIf="students.length > 0">
+  <mat-expansion-panel [expanded]="true" *ngFor="let student of students">
+    <mat-expansion-panel-header>
+      <b>First name: </b>     {{student.firstName}}
+    </mat-expansion-panel-header>
+    <p><b>Surname: </b>{{student.lastName}}</p>
+    <p><b>Address: </b>{{student.Address}}</p>
+    <p><b>Date of birth: </b>{{student.dateOfBirth}}</p>
+    <mat-action-row>
+      <button mat-button [routerLink]="['/edit', student._id]" color="primary">EDIT</button>
+      <button mat-button (click)="onDelete(student._id)" color="warn">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-1" *ngIf="students.length <= 0">No students added yet!</p> 
