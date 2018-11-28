@@ -5,3 +5,9 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .keepSmaller {
     width: 200px;
   }
+:-moz-placeholder{
+  color: white;
+}
+placeholder{
+  color:white;
+}

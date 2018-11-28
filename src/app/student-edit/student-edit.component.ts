@@ -4,6 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterModule, Routes, Router } from '@angular/router';
 import {StudentService} from '../services/student.service';
 import { NgForm } from "@angular/forms";
+import {MatIconModule} from '@angular/material/icon';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 
 @Component({
@@ -12,6 +15,7 @@ import { NgForm } from "@angular/forms";
   styleUrls: ['./student-edit.component.css']
 })
 export class StudentEditComponent implements OnInit {
+  panelOpenState = false;
   student : any = [];
   sfirstName : String; 
   slastName : String;
@@ -21,7 +25,7 @@ export class StudentEditComponent implements OnInit {
  
   ngOnInit() {
     console.log(this.route.snapshot.params['id']);
-    this.service.getPost(this.route.snapshot.params['id']).subscribe(data =>
+    this.service.getStudent(this.route.snapshot.params['id']).subscribe(data =>
     {
       this.student = data;
       console.log(this.student);
@@ -41,9 +45,9 @@ export class StudentEditComponent implements OnInit {
       console.log(form.value.date);
       this.sdateOfBirth = new Date(form.value.date);
       this.sdateOfBirth;
-    this.service.updatePost(this.student._id, form.value.firstName, form.value.lastName, form.value.Address, form.value.dateOfBirth.toDateString()).subscribe(() =>
+    this.service.updateStudent(this.student._id, form.value.firstName, form.value.lastName, form.value.Address, form.value.dateOfBirth.toDateString()).subscribe(() =>
     {
-      this.router.navigate(['/list']);
+      this.router.navigate(['/StudentList']);
     });
   }
 

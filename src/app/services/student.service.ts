@@ -11,22 +11,22 @@ export class StudentService {
 
   constructor(private http: HttpClient) { }
 
-  getPostsData(): Observable<any> {
+  getStudentsData(): Observable<any> {
     return this.http.get("http://localhost:8081/api/students");
   }
 
-addPost(firstName: string, lastName: string, Address:string, dateOfBirth:string): Observable<any> {
+addStudent(firstName: string, lastName: string, Address:string, dateOfBirth:string): Observable<any> {
   const student: student = {firstName:firstName, lastName: lastName, Address:Address, dateOfBirth:dateOfBirth};
   return this.http.post("http://localhost:8081/api/students", student);
 }
 
-deletePost(id: String): Observable<any> {
+deleteStudent(id: String): Observable<any> {
   return this.http.delete("http://localhost:8081/api/students/"+id);
 }
-getPost(id:String):Observable<any>{
+getStudent(id:String):Observable<any>{
   return this.http.get("http://localhost:8081/api/students/"+id);
 }
-updatePost(id:string, firstName: string, lastName: string, Address:string, dateOfBirth:string): Observable<any>{
+updateStudent(id:string, firstName: string, lastName: string, Address:string, dateOfBirth:string): Observable<any>{
   const student: student = { firstName: firstName, lastName: lastName, Address: Address, dateOfBirth: dateOfBirth};
   return this.http.put("http://localhost:8081/api/students/"+id, student);
 }

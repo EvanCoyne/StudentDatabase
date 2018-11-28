@@ -1,5 +1,87 @@
 <mat-card>
-  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-accordion>
+        <form (submit)="onAddStudent(postForm)" #postForm="ngForm">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Personal Details
+            </mat-panel-title>
+            <mat-panel-description>
+              Enter students name and address
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <mat-form-field>
+            <input
+            matInput placeholder="Student First Name"
+            type="text"
+            name="firstName"
+            ngModel
+            required
+            minlength="3"
+            #firstName="ngModel">
+            <mat-error *ngIf="firstName.invalid">Please enter the student's first name.</mat-error>
+          </mat-form-field>
+      
+          <mat-form-field>
+              <input
+              matInput placeholder="Student Last Name"
+              type="text"
+              name="lastName"
+              ngModel
+              required
+              minlength="3"
+              #lastName="ngModel">
+              <mat-error *ngIf="lastName.invalid">Please enter the student's last name.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+              <input
+              matInput placeholder="Address"
+              type="text"
+              name="Address"
+              ngModel
+              required
+              minlength="3"
+              #Address="ngModel">
+              <mat-error *ngIf="Address.invalid">Please enter the student's Address.</mat-error>
+          </mat-form-field>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Date of birth
+            </mat-panel-title>
+            <mat-panel-description>
+              Click Here to {{panelOpenState ? 'hide' : 'show'}} date of birth section
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field>
+              <div class = "keepSmaller">
+              <input matInput [matDatepicker]="dateOfBirth" 
+              placeholder="Student date of birth" 
+              name="dateOfBirth" 
+              ngModel 
+              required
+              #dateOfBirth="ngModel"
+              >
+          <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+          <mat-datepicker #dateOfBirth></mat-datepicker>
+          </div>
+            </mat-form-field>
+        </mat-expansion-panel>
+        <button
+      mat-raised-button
+      color="accent"
+      type="submit">Save Post</button>
+  </form>
+      </mat-accordion>
+
+      
+</mat-card>
+<!--
+<mat-card>
+  <form (submit)="onAddStudent(postForm)" #postForm="ngForm">
     <mat-form-field>
       <input
         matInput placeholder="Student First Name"
@@ -58,4 +140,4 @@
       color="accent"
       type="submit">Save Post</button>
   </form>
-</mat-card>
+</mat-card>-->

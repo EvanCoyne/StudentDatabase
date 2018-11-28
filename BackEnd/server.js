@@ -8,13 +8,13 @@ var mongoDB = 'mongodb://Evan:Hello123@ds039231.mlab.com:39231/evansproject';
 mongoose.connect(mongoDB);
 
 var Schema = mongoose.Schema;
-var postSchema = new Schema({
+var studentSchema = new Schema({
     firstName: String,
     lastName: String,
     Address: String,
     dateOfBirth: String
 })
-var PostModel = mongoose.model('student', postSchema);
+var StudentModel = mongoose.model('student', studentSchema);
 
 
 //Here we are configuring express to use body-parser as middle-ware. 
@@ -48,7 +48,7 @@ app.post('/api/students', function(req, res){
     console.log(req.body.Address);
     console.log(req.body.dateOfBirth);
 
-    PostModel.create({
+    StudentModel.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         Address: req.body.Address,
@@ -60,7 +60,7 @@ app.post('/api/students', function(req, res){
 })
 
 app.get('/api/students', function(req, res){
-    PostModel.find(function(err, data){
+    StudentModel.find(function(err, data){
         res.json(data);
     });
 })
@@ -69,7 +69,7 @@ app.get('/api/students/:id', function(req, res){
     console.log("Read post " +req.params.id);
 
     //PostModel.find({_id : req.params.id}, 
-    PostModel.findById(req.params.id,
+    StudentModel.findById(req.params.id,
         function (err, data) {
             res.json(data);
         });
@@ -83,7 +83,7 @@ app.put('/api/students/:id', function(req, res){
     console.log(req.body.dateOfBirth);
 
 
-    PostModel.findByIdAndUpdate(req.params.id, req.body, 
+    StudentModel.findByIdAndUpdate(req.params.id, req.body, 
         function(err, data){
             res.send(data);
         })
@@ -92,7 +92,7 @@ app.put('/api/students/:id', function(req, res){
 app.delete('/api/students/:id', function(req, res){
     console.log(req.params.id);
 
-    PostModel.deleteOne({_id:req.params.id},
+    StudentModel.deleteOne({_id:req.params.id},
     function(err, data)
     {
         if(err)
