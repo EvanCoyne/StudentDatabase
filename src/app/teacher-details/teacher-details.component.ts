@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {StudentService} from '../services/student.service';
+import {TeacherService} from '../services/teacher.service';
 import { Observable } from 'rxjs';
-import {student} from '../student.model';
+import {teacher} from '../teacher.model';
 import {Router, ActivatedRoute} from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule, MatTableDataSource, MatPaginator} from '@angular/material';
 
-export interface student {
+export interface teacher {
   firstName: String;
   lastName: String;
   Address: String;
@@ -14,40 +14,40 @@ export interface student {
 }
 
 @Component({
-  selector: 'app-student-details',
-  templateUrl: './student-details.component.html',
-  styleUrls: ['./student-details.component.css']
+  selector: 'app-teacher-details',
+  templateUrl: './teacher-details.component.html',
+  styleUrls: ['./teacher-details.component.css']
 })
-export class StudentDetailsComponent implements OnInit {
+export class TeacherDetailsComponent implements OnInit {
 
   
-  students: any = [];
+  teachers: any = [];
   displayedColumns: String[] = ['firstName', 'lastName', 'Address', 'dateOfBirth' /*,'Edit', 'Delete'*/];
-  dataSource = new MatTableDataSource(this.students);
+  dataSource = new MatTableDataSource(this.teachers);
   applyFilter(filterValue:String){
-    this.students.filter = filterValue.trim();
+    this.teachers.filter = filterValue.trim();
   }
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-
-  constructor(private Ss:StudentService){}
+  constructor(private Ts:TeacherService){}
 
   ngOnInit(){
     this.dataSource.paginator = this.paginator;
-    this.Ss.getStudentsData().subscribe(data => {
-        this.students = data;
-    });
     
+    this.Ts.getTeacherData().subscribe(data => {
+        this.teachers = data;
+    });
    }
 
    onRowClicked(row){
-     console.log("Row clicked")
-     //I wanted to send to edit route from here but couldn't find a solution
-     
-   }
+    console.log("Row clicked")
+    //I wanted to send to edit route from here but couldn't find a solution
+    
+  }
+
    onDelete(id:String){
      console.log("Delete called "+ id);
-     this.Ss.deleteStudent(id).subscribe(() =>
+     this.Ts.deleteTeacher(id).subscribe(() =>
      {
         this.ngOnInit();
      })

@@ -8,13 +8,21 @@ var mongoDB = 'mongodb://Evan:Hello123@ds039231.mlab.com:39231/evansproject';
 mongoose.connect(mongoDB);
 
 var Schema = mongoose.Schema;
-var studentSchema = new Schema({
+var StudentSchema = new Schema({
     firstName: String,
     lastName: String,
     Address: String,
     dateOfBirth: String
 })
-var StudentModel = mongoose.model('student', studentSchema);
+var TeacherSchema = new Schema({
+    firstName: String,
+    lastName: String,
+    Address: String,
+    dateOfBirth: String
+})
+var StudentModel = mongoose.model('student', StudentSchema);
+var TeacherModel = mongoose.model('teacher', TeacherSchema);
+
 
 
 //Here we are configuring express to use body-parser as middle-ware. 
@@ -93,6 +101,67 @@ app.delete('/api/students/:id', function(req, res){
     console.log(req.params.id);
 
     StudentModel.deleteOne({_id:req.params.id},
+    function(err, data)
+    {
+        if(err)
+            res.send(err);
+        res.send(data);
+    })
+})
+
+
+app.post('/api/teachers', function(req, res){
+    console.log("post successful");
+    console.log(req.body.firstName);
+    console.log(req.body.lastName);
+    console.log(req.body.Address);
+    console.log(req.body.dateOfBirth);
+
+    TeacherModel.create({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        Address: req.body.Address,
+        dateOfBirth: req.body.dateOfBirth
+    });
+    res.send('Item added');
+
+
+})
+
+app.get('/api/teachers', function(req, res){
+    TeacherModel.find(function(err, data){
+        res.json(data);
+    });
+})
+
+app.get('/api/teachers/:id', function(req, res){
+    console.log("Read post " +req.params.id);
+
+    //PostModel.find({_id : req.params.id}, 
+    TeacherModel.findById(req.params.id,
+        function (err, data) {
+            res.json(data);
+        });
+})
+
+app.put('/api/teachers/:id', function(req, res){
+    console.log("Update Teacher" +req.params.id);
+    console.log(req.body.firstName);
+    console.log(req.body.lastName);
+    console.log(req.body.Address);
+    console.log(req.body.dateOfBirth);
+
+
+    TeacherModel.findByIdAndUpdate(req.params.id, req.body, 
+        function(err, data){
+            res.send(data);
+        })
+})
+
+app.delete('/api/teachers/:id', function(req, res){
+    console.log(req.params.id);
+
+    TeacherModel.deleteOne({_id:req.params.id},
     function(err, data)
     {
         if(err)

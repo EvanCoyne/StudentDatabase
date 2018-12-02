@@ -12,3 +12,7 @@ textarea {
 ::placeholder{
   color:white;
 }
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: rgba(255, 255, 255);
+}

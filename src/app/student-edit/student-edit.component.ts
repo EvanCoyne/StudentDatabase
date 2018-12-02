@@ -39,7 +39,7 @@ export class StudentEditComponent implements OnInit {
       console.log("message" +this.sdateOfBirth.toDateString());    
     });
   }
-  onEditPost(form: NgForm) {
+  onEditStudent(form: NgForm) {
     if (!form.valid)
       return;
       console.log(form.value.date);

@@ -1,0 +1,213 @@
+<!--<mat-card>
+  <mat-accordion>
+      <form (submit)="onEditPost(postForm)" #postForm="ngForm">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Personal Details
+          </mat-panel-title>
+          <mat-panel-description>
+            Click here to edit the teachers name and address
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        <mat-form-field>
+            <input
+              matInput placeholder="Teacher Firstname"
+              type="text"
+              name="firstName"
+              ngModel={{teacher.firstName}}
+              required
+              #firstName="ngModel">
+          </mat-form-field>
+    
+        <mat-form-field>
+            <input
+              matInput placeholder="Teacher Last Name"
+              type="text"
+              name="lastName"
+              ngModel={{teacher.lastName}}
+              required
+              #lastName="ngModel">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input
+              matInput placeholder="Address"
+              type="text"
+              name="Address"
+              ngModel={{teacher.Address}}
+              required
+              #Address="ngModel">
+          </mat-form-field>
+
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+           Date of birth
+          </mat-panel-title>
+          <mat-panel-description>
+            Click Here to {{panelOpenState ? 'hide' : 'show'}} date of birth section
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class = "keepSmaller">
+            <mat-form-field>
+              <input matInput [matDatepicker]="dateOfBirth" 
+              placeholder="Teacher's date of birth" 
+              name="dateOfBirth" 
+              ngModel={{student.dateOfBirth}}
+              required
+              #dateOfBirth="ngModel"
+              >
+          <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+          <mat-datepicker #dateOfBirth></mat-datepicker>
+            </mat-form-field>
+          </div>
+      </mat-expansion-panel>
+      <button
+      mat-raised-button
+      color="accent"
+      type="submit">Update Teacher</button>
+  </form>
+    </mat-accordion>
+
+    
+</mat-card>-->
+
+<!--<mat-card>
+  <form (submit)="onEditTeacher(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput placeholder="Firstname"
+        type="text"
+        name="firstName"
+        ngModel={{teacher.firstName}}
+        required
+        #firstName="ngModel">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input
+        matInput placeholder="Teacher Last Name"
+        type="text"
+        name="lastName"
+        ngModel={{teacher.lastName}}
+        required
+        #lastName="ngModel">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input
+        matInput placeholder="Address"
+        type="text"
+        name="Address"
+        ngModel={{teacher.Address}}
+        required
+        #Address="ngModel">
+    </mat-form-field>
+  
+    <div class = "keepSmaller">
+    <mat-form-field>
+      <input matInput [matDatepicker]="dateOfBirth" 
+      placeholder="Teachers date of birth" 
+      name="dateOfBirth" 
+      ngModel={{teacher.dateOfBirth}}
+      required
+      #dateOfBirth="ngModel"
+      >
+  <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+  <mat-datepicker #dateOfBirth></mat-datepicker>
+    </mat-form-field>
+    </div>
+  
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit">Update Teacher</button>
+  </form>
+  </mat-card>-->
+
+
+
+  <mat-card>
+    <mat-accordion>
+        <form (submit)="onEditTeacher(postForm)" #postForm="ngForm">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Personal Details
+            </mat-panel-title>
+            <mat-panel-description>
+              Click here to edit the students name and address
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <mat-form-field>
+              <input
+                matInput placeholder="Firstname"
+                type="text"
+                name="firstName"
+                ngModel={{teacher.firstName}}
+                required
+                #firstName="ngModel">
+            </mat-form-field>
+      
+          <mat-form-field>
+              <input
+                matInput placeholder="Teacher Last Name"
+                type="text"
+                name="lastName"
+                ngModel={{teacher.lastName}}
+                required
+                #lastName="ngModel">
+          </mat-form-field>
+
+          <mat-form-field>
+              <input
+                matInput placeholder="Address"
+                type="text"
+                name="Address"
+                ngModel={{teacher.Address}}
+                required
+                #Address="ngModel">
+            </mat-form-field>
+
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+             Date of birth
+            </mat-panel-title>
+            <mat-panel-description>
+              Click Here to {{panelOpenState ? 'hide' : 'show'}} date of birth section
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class = "keepSmaller">
+              <mat-form-field>
+                <input matInput [matDatepicker]="dateOfBirth" 
+                placeholder="Teachers date of birth" 
+                name="dateOfBirth" 
+                ngModel={{teacher.dateOfBirth}}
+                required
+                #dateOfBirth="ngModel"
+                >
+            <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+            <mat-datepicker #dateOfBirth></mat-datepicker>
+              </mat-form-field>
+            </div>
+        </mat-expansion-panel>
+        <button
+        mat-raised-button
+        color="accent"
+        type="submit">Update Teacher</button>
+    </form>
+      </mat-accordion>
+
+      
+</mat-card>
+
+
+

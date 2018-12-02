@@ -1,1 +1,13 @@
 @import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+    color: rgba(255, 255, 255);
+}
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }

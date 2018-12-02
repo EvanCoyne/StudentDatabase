@@ -19,6 +19,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { StudentCreateComponent } from './student-create/student-create.component';
 import { StudentEditComponent } from './student-edit/student-edit.component';
 import { AboutComponent } from './about/about.component';
+import { TeacherCreateComponent } from './teacher-create/teacher-create.component';
+import { TeacherEditComponent } from './teacher-edit/teacher-edit.component';
+import { TeacherDetailsComponent } from './teacher-details/teacher-details.component';
+import { MatTableModule, MatTableDataSource, MatPaginatorModule, MatProgressSpinnerModule, 
+  MatSortModule} from '@angular/material'
+import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';;
 
 const appRoutes: Routes = [
   {
@@ -34,6 +40,18 @@ const appRoutes: Routes = [
     component: StudentEditComponent
   },
   {
+    path: 'TeacherList',
+    component: TeacherDetailsComponent
+  },
+  {
+    path: 'CreateTeacher',
+    component: TeacherCreateComponent
+  },
+  {
+    path: 'EditTeacher/:id',
+    component: TeacherEditComponent
+  },
+  {
     path: 'About',
     component: AboutComponent
   }
@@ -46,7 +64,10 @@ const appRoutes: Routes = [
     StudentDetailsComponent,
     StudentCreateComponent,
     StudentEditComponent,
-    AboutComponent
+    AboutComponent,
+    TeacherCreateComponent,
+    TeacherEditComponent,
+    TeacherDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -59,14 +80,18 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatInputModule,
     MatNativeDateModule,
-  MatCardModule,
-  MatButtonModule,
-  MatToolbarModule,
-  MatExpansionModule,
-  MatMenuModule,
-  MatDatepickerModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule, 
+    MatSortModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatMenuModule,
+    MatDatepickerModule
   ],
   providers: [StudentService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { MatTableDataSource }
