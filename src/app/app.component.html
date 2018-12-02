@@ -4,30 +4,35 @@
 <!-- <div class="button-row">
   <a mat-raised-button color="primary" [routerLink]="['/']"><mat-icon>add</mat-icon></a>
 </div> -->
-    <mat-toolbar color="primary"> 
-      <mat-toolbar-row>
-        <img src="images/books1.png" height="50px" width="50px">     
-        <span class="title-center">
-          Student Database
-      </span>
-        </mat-toolbar-row>
-      
-        <mat-toolbar-row>
-  
-    <button mat-button [routerLink]="['/CreateStudent']" color="Warn"><mat-icon>account_circle</mat-icon>   Create Student</button>
-    <button mat-button [routerLink]="['/StudentList']"><mat-icon>assignment</mat-icon>    Student List</button>
-    <button mat-button [routerLink]="['/CreateTeacher']" color="Warn"><mat-icon>account_circle</mat-icon>Add Teacher</button>
-    <button mat-button [routerLink]="['/TeacherList']"><mat-icon>assignment</mat-icon>Teacher List</button>
-    <button mat-button [routerLink]="['/About']"><mat-icon>help</mat-icon>    About</button>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <img src="images/books1.png" height="50px" width="50px">
+    <span class="title-center">
+      Student Database
+    </span>
   </mat-toolbar-row>
-   </mat-toolbar>
+
+  <mat-toolbar-row>
+
+    <button mat-button [routerLink]="['/CreateStudent']" color="Warn">
+      <mat-icon>account_circle</mat-icon> Create Student</button>
+    <button mat-button [routerLink]="['/StudentList']">
+      <mat-icon>assignment</mat-icon> Student List</button>
+    <button mat-button [routerLink]="['/CreateTeacher']" color="Warn">
+      <mat-icon>account_circle</mat-icon>Add Teacher</button>
+    <button mat-button [routerLink]="['/TeacherList']">
+      <mat-icon>assignment</mat-icon>Teacher List</button>
+    <button mat-button [routerLink]="['/About']">
+      <mat-icon>help</mat-icon> About</button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
 <!--<button mat-button color="primary" [matMenuTriggerFor]="menu">Posts Menu</button>
 <mat-menu color="primary" #menu="matMenu">
   <button color="primary" mat-menu-item [routerLink]="['/create']">Create</button>
   <button color="primary"mat-menu-item [routerLink]="['/']">List</button>
 </mat-menu> -->
-  
- 
+
+
 
 <router-outlet></router-outlet>

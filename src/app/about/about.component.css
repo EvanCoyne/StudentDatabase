@@ -9,6 +9,10 @@ img{
   border-color:#c2185b;
   border-width: 15px;
 }
+.mat-card {
+  width: 40%;
+  float: left; 
+}
 
 mat-form-field,
 textarea {
